@@ -27,8 +27,8 @@ void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UE_LOG(LogTemp, Warning, TEXT("Player Controller is Ticking"))
-
+	AimTowardsCrossHair();
+		
 }
 
 ATank* ATankPlayerController::GetControlledTank() const
@@ -38,3 +38,26 @@ ATank* ATankPlayerController::GetControlledTank() const
 
  
 }
+
+void ATankPlayerController::AimTowardsCrossHair() {
+
+	if (!GetControlledTank()) { return; }
+
+	FVector HitLocation;
+	if (GetSightRayHitLocation(HitLocation))
+	{
+
+		UE_LOG(LogTemp, Warning, TEXT("HitLoaction: %s"), *HitLocation.ToString());
+		// TODO Tell controlled tank to aim at this point
+
+	}
+}
+
+	bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation) const
+	{
+		HitLocation = FVector(1.0);
+		return true;
+
+	}
+
+

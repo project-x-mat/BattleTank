@@ -26,7 +26,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void Aimat(FVector HitLocation);
+	void Aimat(FVector HitLocation, float LaunchSpeed);
 
 private:
 

@@ -2,3 +2,11 @@
 
 #include "TankBarrel.h"
 
+
+
+void UTankBarrel::Elevate(float DegreePerSecond) 
+{
+
+	UE_LOG(LogTemp, Warning, TEXT("Barrel-Elevate () Called"));
+
+}

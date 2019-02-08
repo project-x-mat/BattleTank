@@ -3,6 +3,7 @@
 
 #include "TankAImingComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "TankBarrel.h"
 
 // Sets default values for this component's properties
 UTankAImingComponent::UTankAImingComponent()
@@ -14,7 +15,7 @@ UTankAImingComponent::UTankAImingComponent()
 	// ...
 }
 
-void UTankAImingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAImingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -34,9 +35,7 @@ void UTankAImingComponent::Aimat(FVector HitLocation, float LaunchSpeed)
 		MoveBarrelTowards(AimDirection);
 		
 	}
-
 	
-
 }
 void UTankAImingComponent::MoveBarrelTowards(FVector AimDirection)
 {
@@ -45,7 +44,9 @@ void UTankAImingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	UE_LOG(LogTemp, Warning, TEXT("AimAsRotator: %s"), *DeltaRotator.ToString());
+	
+
+	Barrel->Elevate(5);
 }
 
 

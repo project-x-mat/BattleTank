@@ -4,9 +4,9 @@
 
 
 
-void UTankBarrel::Elevate(float DegreePerSecond) 
+void UTankBarrel::Elevate(float RelativeSpeed)
 {
 
-	UE_LOG(LogTemp, Warning, TEXT("Barrel-Elevate () Called"));
+	UE_LOG(LogTemp, Warning, TEXT("Barrel-Elevate () Called at speed %f"), RelativeSpeed);
 
 }

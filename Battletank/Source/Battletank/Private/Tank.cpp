@@ -6,6 +6,7 @@
 #include "Projectile.h"
 #include "TankAImingComponent.h"
 #include "Engine/World.h"
+#include "TankMovementComponent.h"
 
 
 
@@ -16,6 +17,9 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 
 	TankAimingComponent = CreateDefaultSubobject<UTankAImingComponent>(FName("Aiming Component"));
+
+
+	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("Movement Component"));
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)

@@ -7,7 +7,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel;
-class UTankAImingComponent;
 class UTankTurret;
 class AProjectile;
 
@@ -21,17 +20,12 @@ public:
 
 	virtual void BeginPlay() override;
 
-	void Aimat(FVector HitLocation);	
+		
 
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
 
-protected:
 
-	UPROPERTY(BlueprintReadOnly)
-	UTankAImingComponent* TankAimingComponent = nullptr;
-
-	
 
 private:
 

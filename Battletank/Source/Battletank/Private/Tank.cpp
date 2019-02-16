@@ -2,8 +2,6 @@
 
 
 #include "Tank.h"
-#include "TankBarrel.h"
-#include "Projectile.h"
 #include "Engine/World.h"
 
 
@@ -18,23 +16,3 @@ ATank::ATank()
 	
 }
 
-void ATank::BeginPlay() 
-{
-	Super::BeginPlay();
-
-}
-
-
-void ATank::Fire()
-{
-	bool IsReloaded = (FPlatformTime::Seconds() - LastFireTime) > ReloadTimeInSeconds;
-
-	if (Barrel && IsReloaded) 
-	{ 
-
-		auto Projectile = GetWorld()->SpawnActor <AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation(FName("Projectile")), Barrel->GetSocketRotation(FName("Projectile")));
-
-		Projectile->LaunchProjectile(LaunchSpeed);
-		LastFireTime = FPlatformTime::Seconds();
-	}
-}
